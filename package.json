@@ -27,6 +27,11 @@
     "react-dom": "^15.4.0"
   },
   "devDependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1",
+    "browserify-incremental": "^3.1.1",
+    "node-bourbon": "^4.2.8",
+    "node-sass-middleware": "^0.10.0",
     "nodemon": "^1.11.0"
   }
 }

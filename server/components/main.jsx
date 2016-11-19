@@ -12,9 +12,11 @@ export default class MainLayout extends Component {
           <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
           <title>Tyler Brown</title>
           <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400" />
+          <link rel="stylesheet" href="main-dev.css" />
         </head>
         <body>
           {children}
+          <script src="main-dev.js" />
         </body>
       </html>
     );
