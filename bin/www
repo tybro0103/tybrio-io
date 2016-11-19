@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+
+require('babel-register');
+
+var http = require('http');
+
+var env = require('../env');
+var store = require('../server/store').default;
+var app = require('../server/index').default;
+
+// port
+var port = env.port;
+app.set('port', port);
+
+// load store, then start server
+var server = http.createServer(app);
+store.load((error) => {
+  if (error) throw error;
+  server.listen(port);
+});
+
+// on server error
+server.on('error', function(error) {
+  if (error.syscall !== 'listen') throw error;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error('Port ' + port + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error('Port ' + port + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+});
+
+// on server start
+server.on('listening', function() {
+  var port = server.address().port;
+  console.log('listening on port ' + port);
+});
