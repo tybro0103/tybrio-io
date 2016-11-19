@@ -1,13 +1,15 @@
 import s3 from './s3';
 import env from '../env';
 
+const initialState = {};
+
 class Store {
 
   constructor(bucketName, fileName) {
     this._loaded = false;
     this._bucketName = bucketName;
     this._fileName = fileName;
-    this._state = {};
+    this._state = initialState;
   }
 
   load(cb) {
@@ -22,7 +24,7 @@ class Store {
       // check for error; file not existing is ok
       if (error && error.code !== 'NoSuchKey') return cb(error);
       //
-      if (data && data.Body) this._state = JSON.parse(data.Body);
+      this._state = (data && data.Body) ? JSON.parse(data.Body) : initialState;
       this._loaded = true;
       cb();
     });
