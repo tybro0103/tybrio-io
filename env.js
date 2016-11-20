@@ -12,4 +12,8 @@ module.exports = {
   awsRegion: process.env.AWS_REGION,
   awsBucketName: process.env.AWS_BUCKET_NAME,
 
+  fbAppId: process.env.FB_APP_ID,
+  fbAppSecret: process.env.FB_APP_SECRET,
+  fbRedirectUri: process.env.FB_REDIRECT_URI,
+
 };

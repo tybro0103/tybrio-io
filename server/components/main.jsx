@@ -15,6 +15,7 @@ export default class MainLayout extends Component {
           <link rel="stylesheet" href="main-dev.css" />
         </head>
         <body>
+          <a href="/login">login</a>
           {children}
           <script src="main-dev.js" />
         </body>

@@ -1,3 +1,4 @@
+import util from 'util';
 import React, { Component, PropTypes } from 'react';
 
 export default class ErrorComp extends Component {
@@ -8,7 +9,7 @@ export default class ErrorComp extends Component {
 
   render() {
     const { error } = this.props;
-    const json = JSON.stringify(error, null, 2);
+    const json = util.inspect(error);
     const dump = `${json}\n\n${error.stack}`;
 
     return (
