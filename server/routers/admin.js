@@ -1,8 +1,11 @@
 import { Router } from 'express';
 
 import store from '../store';
+import { requireAdmin } from '../middlewares/auth';
 
 const router = Router();
+
+router.use(requireAdmin);
 
 router.get('/store-set', (req, res, next) => {
   store.set(req.query, (error) => {

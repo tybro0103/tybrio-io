@@ -1,6 +1,9 @@
 import express from 'express';
 import path from 'path';
 import compression from 'compression';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import cookieSession from 'cookie-session';
 import { createEngine } from 'express-react-views';
 
 import env from '../env';
@@ -21,6 +24,10 @@ app.set('view engine', 'jsx');
 app.engine('jsx', createEngine({transformViews: false}));
 
 // middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(cookieParser());
+app.use(cookieSession({name: 'tybro-io', secret: env.cookieSessionSecret}));
 app.use(compression());
 app.use(express.static(path.join(rootPath, 'public')));
 

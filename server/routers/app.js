@@ -6,7 +6,8 @@ import * as fbApi from '../apis/facebook';
 const router = Router();
 
 router.get('/', (req, res) => {
-  res.render('pages/home');
+  const { isAdmin } = req.session;
+  res.render('pages/home', {isAdmin});
 });
 
 router.get('/login', (req, res) => {
@@ -24,12 +25,10 @@ router.get('/fb-oauth-redirect', (req, res, next) => {
   fbApi.getAccessToken(code)
     .then(fbApi.getUserId)
     .then(fbUserId => {
-      res.redirect(`/?fbUserId=${fbUserId}`);
+      if (env.fbAuthUserId === fbUserId) req.session.isAdmin = true;
+      res.redirect('/');
     })
-    .catch(error => {
-      console.log(error);
-      next(error);
-    });
+    .catch(error => next(error));
 });
 
 export default router;
