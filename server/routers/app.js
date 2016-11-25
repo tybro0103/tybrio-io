@@ -1,7 +1,6 @@
 import { Router } from 'express';
 
 import env from '../../env';
-import * as fbApi from '../apis/facebook';
 
 const router = Router();
 
@@ -11,24 +10,12 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  const oauthUrl = 'https://www.facebook.com/v2.8/dialog/oauth'
+  const oauthUrl = 'https://api.instagram.com/oauth/authorize/'
     + '?response_type=code'
-    + '&scope=email'
-    + `&client_id=${env.fbAppId}`
-    + `&redirect_uri=${env.fbRedirectUri}`;
+    + `&client_id=${env.igClientId}`
+    + `&redirect_uri=${env.host}/oauth/ig-redirect`;
 
   res.redirect(oauthUrl);
-});
-
-router.get('/fb-oauth-redirect', (req, res, next) => {
-  const { code } = req.query;
-  fbApi.getAccessToken(code)
-    .then(fbApi.getUserId)
-    .then(fbUserId => {
-      if (env.fbAuthUserId === fbUserId) req.session.isAdmin = true;
-      res.redirect('/');
-    })
-    .catch(error => next(error));
 });
 
 export default router;

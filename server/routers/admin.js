@@ -7,11 +7,8 @@ const router = Router();
 
 router.use(requireAdmin);
 
-router.get('/store-set', (req, res, next) => {
-  store.set(req.query, (error) => {
-    if (error) return next(error);
-    res.send(store.get());
-  });
+router.get('/', (req, res) => {
+  res.redirect('/admin/store');
 });
 
 router.get('/store', (req, res, next) => {
@@ -20,6 +17,13 @@ router.get('/store', (req, res, next) => {
 
 router.get('/store-load', (req, res, next) => {
   store.load((error) => {
+    if (error) return next(error);
+    res.send(store.get());
+  });
+});
+
+router.get('/store-set', (req, res, next) => {
+  store.set(req.query, (error) => {
     if (error) return next(error);
     res.send(store.get());
   });

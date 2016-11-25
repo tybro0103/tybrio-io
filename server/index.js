@@ -10,6 +10,7 @@ import env from '../env';
 import { handleNotFound, handleError } from './middlewares/errors';
 import { serveClientJs, serveCss } from './middlewares/dev-assets';
 import appRouter from './routers/app';
+import oauthRouter from './routers/oauth';
 import adminRouter from './routers/admin';
 
 const rootPath = path.join(__dirname, '../');
@@ -39,6 +40,7 @@ if (env.nodeEnv === 'development') {
 
 // routers
 app.use('/', appRouter);
+app.use('/oauth', oauthRouter);
 app.use('/admin', adminRouter);
 
 // errors

@@ -6,6 +6,7 @@ module.exports = {
   nodeEnv: process.env.NODE_ENV,
 
   port: process.env.PORT,
+  host: process.env.HOST,
 
   cookieSessionSecret: process.env.COOKIE_SESSION_SECRET,
 
@@ -14,9 +15,8 @@ module.exports = {
   awsRegion: process.env.AWS_REGION,
   awsBucketName: process.env.AWS_BUCKET_NAME,
 
-  fbAppId: process.env.FB_APP_ID,
-  fbAppSecret: process.env.FB_APP_SECRET,
-  fbRedirectUri: process.env.FB_REDIRECT_URI,
-  fbAuthUserId: process.env.FB_AUTH_USER_ID,
+  igClientId: process.env.IG_CLIENT_ID,
+  igClientSecret: process.env.IG_CLIENT_SECRET,
+  igValidUsername: process.env.IG_VALID_USERNAME,
 
 };

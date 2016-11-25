@@ -19,6 +19,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.18.0",
     "body-parser": "^1.15.2",
+    "camelize": "^1.0.0",
     "compression": "^1.6.2",
     "cookie-parser": "^1.4.3",
     "cookie-session": "^2.0.0-alpha.2",
@@ -27,6 +28,7 @@
     "express-react-views": "^0.10.2",
     "lodash": "^4.17.2",
     "path": "^0.12.7",
+    "querystring": "^0.2.0",
     "react": "^15.4.0",
     "react-dom": "^15.4.0"
   },
