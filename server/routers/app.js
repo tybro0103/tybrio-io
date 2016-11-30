@@ -18,5 +18,10 @@ router.get('/login', (req, res) => {
   res.redirect(oauthUrl);
 });
 
+router.get('/logout', (req, res) => {
+  req.session = null;
+  res.redirect('/');
+});
+
 export default router;
 
