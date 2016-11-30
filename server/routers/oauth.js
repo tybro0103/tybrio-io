@@ -10,7 +10,7 @@ router.get('/ig-redirect', (req, res, next) => {
   const { code } = req.query;
   igApi.getAccessToken(code)
     .then(({accessToken, user}) => {
-      if (env.igValidUsername === user.username) {
+      if (env.igValidUserId === user.id) {
         store.set({igAccessToken: accessToken}, (error) => {
           if (error) return next(error);
           req.session.igUser = user;

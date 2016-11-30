@@ -17,6 +17,6 @@ module.exports = {
 
   igClientId: process.env.IG_CLIENT_ID,
   igClientSecret: process.env.IG_CLIENT_SECRET,
-  igValidUsername: process.env.IG_VALID_USERNAME,
+  igValidUserId: process.env.IG_VALID_USER_ID,
 
 };
