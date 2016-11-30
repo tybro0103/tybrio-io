@@ -1,8 +1,10 @@
+import env from '../../env';
+
 export function requireAdmin(req, res, next) {
-  const { isAdmin } = req.session;
-  if (isAdmin) return next();
+  const { igUser } = req.session;
+  if (igUser && igUser.id === env.igValidUserId) return next();
   //
-  let error = new Error('admin rights required');
+  const error = new Error('admin rights required');
   error.status = 401;
   next(error);
 };
