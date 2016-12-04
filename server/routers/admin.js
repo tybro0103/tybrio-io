@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import store from '../store';
+import * as igApi from '../apis/instagram';
 import { requireAdmin } from '../middlewares/auth';
 
 const router = Router();
@@ -8,7 +9,7 @@ const router = Router();
 router.use(requireAdmin);
 
 router.get('/', (req, res) => {
-  res.redirect('/admin/store');
+  res.render('pages/admin/index');
 });
 
 router.get('/store', (req, res, next) => {
@@ -27,6 +28,14 @@ router.get('/store-set', (req, res, next) => {
     if (error) return next(error);
     res.send(store.get());
   });
+});
+
+router.get('/ig-fetch', (req, res, next) => {
+  igApi.fetchRecentMedia()
+    .then(items => {
+      res.send(items);
+    })
+    .catch(error => next(error));
 });
 
 export default router;
