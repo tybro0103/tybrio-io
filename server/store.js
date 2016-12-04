@@ -1,4 +1,4 @@
-import s3 from './s3';
+import s3 from './clients/s3';
 import env from '../env';
 
 const initialState = {};

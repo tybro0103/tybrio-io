@@ -1,6 +1,6 @@
 import AWS from 'aws-sdk';
 
-import env from '../env';
+import env from '../../env';
 
 const config = new AWS.Config({
   accessKeyId: env.awsAccessKeyId,
