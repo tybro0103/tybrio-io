@@ -1,12 +1,14 @@
 import { Router } from 'express';
 
 import env from '../../env';
+import store from '../store';
 
 const router = Router();
 
 router.get('/', (req, res) => {
   const { isAdmin } = req.session;
-  res.render('pages/home', {isAdmin});
+  const igItems = store.get('igItems');
+  res.render('pages/home', {isAdmin, igItems});
 });
 
 router.get('/login', (req, res) => {

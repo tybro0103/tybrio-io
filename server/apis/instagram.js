@@ -38,13 +38,13 @@ export function fetchRecentMedia() {
 const formatIgItems = (items) => items.reduce((itemMap, item) => ({
   ...itemMap,
   [item.id]: {
-    createdAt: item.createdTime,
+    createdAt: parseInt(item.createdTime),
     imageLow: item.images.lowResolution,
     imageStandard: item.images.standardResolution,
     imageThumb: item.images.thumbnail,
     link: item.link,
     type: item.type,
     likeCount: item.likes.count,
-    caption: item.caption,
+    caption: item.caption.text,
   }
 }), {});

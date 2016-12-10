@@ -1,7 +1,9 @@
 import s3 from './clients/s3';
 import env from '../env';
 
-const initialState = {};
+const initialState = {
+  igItems: {},
+};
 
 class Store {
 

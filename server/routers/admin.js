@@ -1,8 +1,8 @@
 import { Router } from 'express';
 
 import store from '../store';
-import * as igApi from '../apis/instagram';
 import { requireAdmin } from '../middlewares/auth';
+import updateIgItems from '../tasks/update-ig-items';
 
 const router = Router();
 
@@ -31,11 +31,10 @@ router.get('/store-set', (req, res, next) => {
 });
 
 router.get('/ig-fetch', (req, res, next) => {
-  igApi.fetchRecentMedia()
-    .then(items => {
-      res.send(items);
-    })
-    .catch(error => next(error));
+  updateIgItems((error, fetchedItems) => {
+    if (error) return next(error);
+    res.send(fetchedItems);
+  });
 });
 
 export default router;
