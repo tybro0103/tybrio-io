@@ -6,13 +6,15 @@ import MainLayout from '../main';
 export default class HomePage extends Component {
 
   render() {
-    const { isAdmin, igItems } = this.props;
+    const { igUser, igItems } = this.props;
     const filteredIgItems = _.map(igItems, (val, key) => ({id: key, ...val}))
 
     return (
-      <MainLayout>
+      <MainLayout igUser={igUser}>
         <h1>Tyler Brown</h1>
-        <h3>Is Admin: {`${isAdmin}`}</h3>
+        {igUser &&
+          <h3>User: {`${igUser.username}`}</h3>
+        }
         <ul>
           {filteredIgItems.map(igItem => (
             <li key={igItem.id}>

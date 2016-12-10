@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class MainLayout extends Component {
 
   render() {
-    const { children } = this.props;
+    const { igUser, children } = this.props;
 
     return (
       <html>
@@ -15,7 +15,10 @@ export default class MainLayout extends Component {
           <link rel="stylesheet" href="main-dev.css" />
         </head>
         <body>
-          <a href="/login">login</a>
+          {igUser
+            ? <a href="/logout">logout</a>
+            : <a href="/login">login</a>
+          }
           {children}
           <script src="main-dev.js" />
         </body>
