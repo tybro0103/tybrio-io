@@ -7,16 +7,25 @@ export default class HomePage extends Component {
 
   render() {
     const { igUser, igItems } = this.props;
+    // TODO: filter them
     const filteredIgItems = _.map(igItems, (val, key) => ({id: key, ...val}))
+    const halfCount = Math.ceil(filteredIgItems.length / 2);
+    const leftIgItems = filteredIgItems.slice(0, halfCount);
+    const rightIgItems = filteredIgItems.slice(halfCount);
 
     return (
       <MainLayout igUser={igUser}>
         <h1>Tyler Brown</h1>
-        {igUser &&
-          <h3>User: {`${igUser.username}`}</h3>
-        }
         <ul>
-          {filteredIgItems.map(igItem => (
+          {leftIgItems.map(igItem => (
+            <li key={igItem.id}>
+              <img src={igItem.imageStandard.url} width="200" height="200" />
+            </li>
+          ))}
+        </ul>
+        <hr />
+        <ul>
+          {rightIgItems.map(igItem => (
             <li key={igItem.id}>
               <img src={igItem.imageStandard.url} width="200" height="200" />
             </li>

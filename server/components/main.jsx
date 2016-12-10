@@ -15,10 +15,15 @@ export default class MainLayout extends Component {
           <link rel="stylesheet" href="main-dev.css" />
         </head>
         <body>
-          {igUser
-            ? <a href="/logout">logout</a>
-            : <a href="/login">login</a>
-          }
+          <div style={{border: '1px solid black'}}>
+            {igUser &&
+              <h3>User: {`${igUser.username}`}</h3>
+            }
+            {igUser
+              ? <a href="/logout">logout</a>
+              : <a href="/login">login</a>
+            }
+          </div>
           {children}
           <script src="main-dev.js" />
         </body>
