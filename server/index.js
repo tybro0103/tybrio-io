@@ -8,7 +8,7 @@ import { createEngine } from 'express-react-views';
 
 import env from '../env';
 import { handleNotFound, handleError } from './middlewares/errors';
-import { serveClientJs, serveCss } from './middlewares/dev-assets';
+import { serveCss } from './middlewares/dev-assets';
 import appRouter from './routers/app';
 import oauthRouter from './routers/oauth';
 import adminRouter from './routers/admin';
@@ -32,11 +32,8 @@ app.use(cookieSession({name: 'tybro-io', secret: env.cookieSessionSecret}));
 app.use(compression());
 app.use(express.static(path.join(rootPath, 'public')));
 
-// dev assets
-if (env.nodeEnv === 'development') {
-  app.get('/main-dev.js', serveClientJs);
-  app.get('/main-dev.css', serveCss);
-}
+// assets
+app.get('/main-dev.css', serveCss);
 
 // set current user
 app.use((req, res, next) => {
