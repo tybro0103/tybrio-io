@@ -6,9 +6,10 @@ $clr-white-space: #F9F9F9;
 $clr-link: #C04;
 
 $bp-m-min: 600px;
-$bp-l-min: 800px;
-$bp-xl-min: 1200px;
-$breakpoints: (medium: $bp-m-min, large: $bp-l-min, xl: $bp-xl-min);
+$bp-l-min: 900px;
+$bp-xl-min: 1400px;
+$bp-xxl-min: 2400px;
+$breakpoints: (medium: $bp-m-min, large: $bp-l-min, xl: $bp-xl-min, xxl: $bp-xxl-min);
 
 
 
@@ -215,6 +216,18 @@ $breakpoints: (medium: $bp-m-min, large: $bp-l-min, xl: $bp-xl-min);
   .instas {
     .insta {
       width: 50%;
+    }
+  }
+}
+
+/*
+ *  >=XXL
+ */
+
+@include media('>=xxl') {
+  .instas {
+    .insta {
+      width: 33.33333%;
     }
   }
 }
