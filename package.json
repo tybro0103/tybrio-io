@@ -11,6 +11,9 @@
   },
   "author": "Tyler Brown <tyler@tybro.io> (http://tyler.tybro.io/)",
   "license": "ISC",
+  "engines": {
+    "node": "7.0.0"
+  },
   "dependencies": {
     "aws-sdk": "^2.7.5",
     "axios": "^0.15.2",
