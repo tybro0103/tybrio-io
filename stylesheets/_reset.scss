@@ -8,3 +8,15 @@ body {
 div, a {
   box-sizing: border-box;
 }
+
+h1, p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
