@@ -38,6 +38,12 @@ if (env.nodeEnv === 'development') {
   app.get('/main-dev.css', serveCss);
 }
 
+// set current user
+app.use((req, res, next) => {
+  res.locals.igUser = req.session.igUser; 
+  next();
+});
+
 // routers
 app.use('/', appRouter);
 app.use('/oauth', oauthRouter);
