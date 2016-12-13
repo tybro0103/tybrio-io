@@ -3,7 +3,7 @@ $content-width-large: 480px;
 $spacing: 40px;
 $clr-text-main: #333;
 $clr-white-space: #F9F9F9;
-$clr-link: #C04;
+$clr-accent: #903;
 
 $bp-m-min: 600px;
 $bp-l-min: 900px;
@@ -58,7 +58,7 @@ $breakpoints: (medium: $bp-m-min, large: $bp-l-min, xl: $bp-xl-min, xxl: $bp-xxl
     display: block;
     border-radius: 100%;
     border: 1px solid transparent;
-    box-shadow: 0 0 0 1px $clr-text-main;
+    box-shadow: 0 0 0 1px $clr-accent;
     width: 80px;
     height: 80px;
     margin: 0px auto;
@@ -79,7 +79,7 @@ $breakpoints: (medium: $bp-m-min, large: $bp-l-min, xl: $bp-xl-min, xxl: $bp-xxl
   .home-links {
     margin-bottom: $spacing;
     a {
-      color: $clr-link;
+      color: $clr-accent;
 
     }
   }
@@ -101,7 +101,7 @@ $breakpoints: (medium: $bp-m-min, large: $bp-l-min, xl: $bp-xl-min, xxl: $bp-xxl
         transition: color 100ms;
 
         &:hover {
-          color: $clr-link;
+          color: $clr-accent;
         }
       }
     }
