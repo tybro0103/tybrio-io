@@ -34,7 +34,7 @@ export default class HomePage extends Component {
             <ul className="home-social">
               <li><a href="https://www.instagram.com/tybro0103/"><i className="fa fa-instagram" /></a></li>
               <li><a href="https://github.com/tybro0103/"><i className="fa fa-github" /></a></li>
-              <li><a href="https://www.linkedin.com/in/tyler-brown-03367217"><i className="fa fa-linkedin" /></a></li>
+              <li><a href="https://www.linkedin.com/in/tybro0103"><i className="fa fa-linkedin" /></a></li>
               <li><a href="http://stackoverflow.com/users/202875/tybro0103"><i className="fa fa-stack-overflow" /></a></li>
               <li><a href="https://www.facebook.com/tybro0103"><i className="fa fa-facebook" /></a></li>
             </ul>
