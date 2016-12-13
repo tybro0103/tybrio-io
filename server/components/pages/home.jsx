@@ -8,7 +8,12 @@ export default class HomePage extends Component {
   render() {
     const { igUser, igItems } = this.props;
     // TODO: filter them
-    const filteredIgItems = _.map(igItems, (val, key) => ({id: key, ...val}))
+    const filteredIgItems = _.chain(igItems)
+      .map((val, key) => ({id: key, ...val}))
+      .sortBy(['createdAt'])
+      .reverse()
+      .take(30)
+      .value();
     const halfCount = Math.ceil(filteredIgItems.length / 2);
     const leftIgItems = filteredIgItems.slice(0, halfCount);
     const rightIgItems = filteredIgItems.slice(halfCount);
