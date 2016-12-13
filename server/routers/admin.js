@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 import store from '../store';
 import { requireAdmin } from '../middlewares/auth';
-import updateIgItems from '../tasks/update-ig-items';
+import { updateIgItems } from '../tasks/update-ig-items';
 
 const router = Router();
 

@@ -1,7 +1,7 @@
 import store from '../store';
 import * as igApi from '../apis/instagram';
 
-export default function updateIgItems(cb) {
+export function updateIgItems(cb=()=>{}) {
   igApi.fetchRecentMedia()
     .then(items => {
       const storedItems = store.get('igItems') || {};
@@ -13,4 +13,11 @@ export default function updateIgItems(cb) {
     .catch(error => {
       cb(error);
     });
+}
+
+export function startUpdatingIgItems() {
+  setInterval(() => {
+    console.log('updateIgItems');
+    updateIgItems();
+  }, 1800000); // 30 mins
 }

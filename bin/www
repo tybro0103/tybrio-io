@@ -7,6 +7,7 @@ var http = require('http');
 var env = require('../env');
 var store = require('../server/store').default;
 var app = require('../server/index').default;
+var startUpdatingIgItems = require('../server/tasks/update-ig-items').startUpdatingIgItems;
 
 // port
 var port = env.port;
@@ -42,4 +43,6 @@ server.on('error', function(error) {
 server.on('listening', function() {
   var port = server.address().port;
   console.log('listening on port ' + port);
+  // update igItems periodically
+  startUpdatingIgItems();
 });
