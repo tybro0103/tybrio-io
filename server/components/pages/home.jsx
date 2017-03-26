@@ -23,7 +23,7 @@ export default class HomePage extends Component {
 
         <div className="home-layer layer-main-content">
           <div className="main-content">
-            <img className="home-avatar" src="http://gravatar.com/avatar/867388b9e54784c6d9e99b485d42aead?s=200" alt="Tyler Brown" />
+            <img className="home-avatar" src="//gravatar.com/avatar/867388b9e54784c6d9e99b485d42aead?s=200" alt="Tyler Brown" />
             <h1 className="home-title">Tyler Brown</h1>
             <p className="home-bio">Lover of coffee, fitness, motorcycles, and the outdoors. Software engineer. Father of two little dudes. Enjoying life in Chattanooga&apos;s Southside.</p>
             <p className="home-links">
